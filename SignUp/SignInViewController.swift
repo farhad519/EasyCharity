@@ -15,7 +15,7 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var stackViewContainer: UIStackView!
     
-    private let color = CustomColor(colorSpectrumValue: Int.random(in: CustomColor.colorRange)).value
+    //private let color = CustomColor(colorSpectrumValue: Int.random(in: CustomColor.colorRange)).value
     
     var viewModel: SignUpMainViewModel!
     

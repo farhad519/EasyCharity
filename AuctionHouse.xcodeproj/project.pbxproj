@@ -31,7 +31,6 @@
 		5A565FC4276E8B54007758C2 /* FireDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A565FC3276E8B54007758C2 /* FireDataModel.swift */; };
 		5A565FC6276ECC1D007758C2 /* CommonCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A565FC5276ECC1D007758C2 /* CommonCode.swift */; };
 		5A5AD62D27E24EDD009063E5 /* CommonDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5AD62C27E24EDD009063E5 /* CommonDataStore.swift */; };
-		5A97F26A275B844D0045DCEC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A97F269275B844D0045DCEC /* GoogleService-Info.plist */; };
 		5A9A8361274BD8E400F80CB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9A8360274BD8E400F80CB9 /* AppDelegate.swift */; };
 		5A9A8363274BD8E400F80CB9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9A8362274BD8E400F80CB9 /* SceneDelegate.swift */; };
 		5A9A8365274BD8E400F80CB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9A8364274BD8E400F80CB9 /* ViewController.swift */; };
@@ -58,6 +57,7 @@
 		5AC3BBF9274D014500166B0A /* AuctionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC3BBF8274D014500166B0A /* AuctionListViewController.swift */; };
 		5AC3BBFB274D014C00166B0A /* AuctionListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC3BBFA274D014C00166B0A /* AuctionListCell.swift */; };
 		5AC3BBFD274D015600166B0A /* AuctionListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AC3BBFC274D015600166B0A /* AuctionListCell.xib */; };
+		5AC4CDCA2828931600888ADB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5AC4CDC92828931600888ADB /* GoogleService-Info.plist */; };
 		5AF61D1A2791B033001E2D24 /* ContactListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF61D192791B033001E2D24 /* ContactListViewModel.swift */; };
 		D02A3665E2453CF0E2808169 /* Pods_AuctionHouse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32942F238A5D113EEEE0F9E6 /* Pods_AuctionHouse.framework */; };
 /* End PBXBuildFile section */
@@ -88,7 +88,6 @@
 		5A565FC3276E8B54007758C2 /* FireDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireDataModel.swift; sourceTree = "<group>"; };
 		5A565FC5276ECC1D007758C2 /* CommonCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonCode.swift; sourceTree = "<group>"; };
 		5A5AD62C27E24EDD009063E5 /* CommonDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDataStore.swift; sourceTree = "<group>"; };
-		5A97F269275B844D0045DCEC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5A9A835D274BD8E400F80CB9 /* AuctionHouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AuctionHouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A9A8360274BD8E400F80CB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A9A8362274BD8E400F80CB9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +116,7 @@
 		5AC3BBF8274D014500166B0A /* AuctionListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuctionListViewController.swift; sourceTree = "<group>"; };
 		5AC3BBFA274D014C00166B0A /* AuctionListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuctionListCell.swift; sourceTree = "<group>"; };
 		5AC3BBFC274D015600166B0A /* AuctionListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuctionListCell.xib; sourceTree = "<group>"; };
+		5AC4CDC92828931600888ADB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5AF61D192791B033001E2D24 /* ContactListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewModel.swift; sourceTree = "<group>"; };
 		A151F7DEA71E32661A4599F8 /* Pods-AuctionHouse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AuctionHouse.debug.xcconfig"; path = "Target Support Files/Pods-AuctionHouse/Pods-AuctionHouse.debug.xcconfig"; sourceTree = "<group>"; };
 		BF0ED8770F9E9C12102B2184 /* Pods-AuctionHouse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AuctionHouse.release.xcconfig"; path = "Target Support Files/Pods-AuctionHouse/Pods-AuctionHouse.release.xcconfig"; sourceTree = "<group>"; };
@@ -226,10 +226,10 @@
 				5A9A8360274BD8E400F80CB9 /* AppDelegate.swift */,
 				5A9A8362274BD8E400F80CB9 /* SceneDelegate.swift */,
 				5A9A8364274BD8E400F80CB9 /* ViewController.swift */,
+				5AC4CDC92828931600888ADB /* GoogleService-Info.plist */,
 				5A9A8366274BD8E400F80CB9 /* Main.storyboard */,
 				5A9A836C274BD8E500F80CB9 /* Assets.xcassets */,
 				5A9A836E274BD8E500F80CB9 /* LaunchScreen.storyboard */,
-				5A97F269275B844D0045DCEC /* GoogleService-Info.plist */,
 				5A9A8371274BD8E500F80CB9 /* Info.plist */,
 			);
 			path = AuctionHouse;
@@ -388,11 +388,11 @@
 				5A32E06E27A50A64001103B9 /* DateCollectionViewCell.xib in Resources */,
 				5AC3BBEF274D00CB00166B0A /* ContactCell.xib in Resources */,
 				5A9A8370274BD8E500F80CB9 /* LaunchScreen.storyboard in Resources */,
-				5A97F26A275B844D0045DCEC /* GoogleService-Info.plist in Resources */,
 				5A415503279CD3BA004E3290 /* OtherMessageCollectionViewCell.xib in Resources */,
 				5AC3BBEC274D008C00166B0A /* TextViewCell.xib in Resources */,
 				5A4154FF279CD3A3004E3290 /* MyMessageCollectionViewCell.xib in Resources */,
 				5AC3BBFD274D015600166B0A /* AuctionListCell.xib in Resources */,
+				5AC4CDCA2828931600888ADB /* GoogleService-Info.plist in Resources */,
 				5A9A836D274BD8E500F80CB9 /* Assets.xcassets in Resources */,
 				5A06AB982756C0D400E858A4 /* SignUp.storyboard in Resources */,
 				5AC3BBE4274D005F00166B0A /* PriceDetailsCell.xib in Resources */,
@@ -641,6 +641,7 @@
 				DEVELOPMENT_TEAM = SRL258882A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AuctionHouse/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = EasyCharity;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -652,7 +653,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.FreeComp.AuctionHouse;
+				PRODUCT_BUNDLE_IDENTIFIER = com.FreeComp.EasyCharity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -671,6 +672,7 @@
 				DEVELOPMENT_TEAM = SRL258882A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AuctionHouse/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = EasyCharity;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -682,7 +684,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.FreeComp.AuctionHouse;
+				PRODUCT_BUNDLE_IDENTIFIER = com.FreeComp.EasyCharity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

@@ -5,9 +5,10 @@
 //  Created by Farhad Chowdhury on 22/11/21.
 //
 
-import UIKit
 import CoreData
 import Firebase
+import Stripe
+import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -32,6 +33,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    }
+    
+    // This method is where you handle URL opens if you are using a native scheme URLs (eg "yourexampleapp://")
+    func application(
+        _ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]
+    ) -> Bool {
+        let stripeHandled = StripeAPI.handleURLCallback(with: url)
+
+        if stripeHandled {
+            return true
+        } else {
+            // This was not a stripe url, do whatever url handling your app
+            // normally does, if any.
+        }
+
+        return false
+    }
+
+    // This method is where you handle URL opens if you are using univeral link URLs (eg "https://example.com/stripe_ios_callback")
+    func application(
+        _ application: UIApplication, continue userActivity: NSUserActivity,
+        restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void
+    ) -> Bool {
+        if userActivity.activityType == NSUserActivityTypeBrowsingWeb {
+            if let url = userActivity.webpageURL {
+                let stripeHandled = StripeAPI.handleURLCallback(with: url)
+
+                if stripeHandled {
+                    return true
+                } else {
+                    // This was not a stripe url, do whatever url handling your app
+                    // normally does, if any.
+                }
+            }
+
+        }
+        return false
     }
 
     // MARK: - Core Data stack

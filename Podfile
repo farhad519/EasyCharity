@@ -12,4 +12,6 @@ target 'AuctionHouse' do
 	pod 'Firebase/Core'
 	pod 'Firebase/Storage'
 	pod 'ReactiveSwift', '~> 6.1'
+	pod 'Stripe'
+	pod 'Alamofire'
 end

@@ -8,8 +8,8 @@
 import Foundation
 
 enum MyKeys: String {
-    case imagesFolder = "AuctionHouse/Images"
-    case videoFolder = "AuctionHouse/Videos"
+    case imagesFolder = "EasyCharity/Images"
+    case videoFolder = "EasyCharity/Videos"
     case AuctionSellItem = "AuctionSellItem"
     case recentMessages = "recent-messages"
     case userMessages = "user-messages"

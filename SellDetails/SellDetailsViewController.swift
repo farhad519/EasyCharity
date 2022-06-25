@@ -258,11 +258,6 @@ class SellDetailsViewController: UIViewController {
         viewModel.editedValue.description = textViewCell?.descriptionTextView.textColor != UIColor.lightGray
         ? (textViewCell?.descriptionTextView.text ?? "")
         : ""
-        let priceDetailsCell = tableView.cellForRow(at: IndexPath(item: 0, section: 3)) as? PriceDetailsCell
-        viewModel.editedValue.title = priceDetailsCell?.titleField.text ?? ""
-        viewModel.editedValue.type = priceDetailsCell?.typeField.text ?? ""
-        viewModel.editedValue.price = priceDetailsCell?.priceField.text ?? ""
-        viewModel.editedValue.negotiable = priceDetailsCell?.negotiableField.text ?? ""
     }
 
     private func configureTableView() {
@@ -367,71 +362,27 @@ extension SellDetailsViewController: UITableViewDataSource {
             cell.containerView.backgroundColor = color.firstLevelColor
             cell.containerView.clipsToBounds = true
             cell.containerView.layer.cornerRadius = 10
-            cell.labelsContainer.backgroundColor = color.firstLevelColor
-            cell.textFieldsContainer.backgroundColor = color.firstLevelColor
             
-//            cell.titleLabel.backgroundColor = firstLevelColor
-//            cell.typeLabel.backgroundColor = firstLevelColor
-//            cell.priceLabel.backgroundColor = firstLevelColor
-//            cell.negotiableLabel.backgroundColor = firstLevelColor
-            cell.titleField.backgroundColor = color.secondLevelColor
-            cell.typeField.backgroundColor = color.secondLevelColor
-            cell.priceField.backgroundColor = color.secondLevelColor
-            cell.negotiableField.backgroundColor = color.secondLevelColor
+            cell.firstLabel.text = "Collected :"
+            cell.firstLabel.textColor = .white
+            cell.firstLabel.textAlignment = .left
             
-            cell.titleLabel.textColor = .white
-            cell.typeLabel.textColor = .white
-            cell.priceLabel.textColor = .white
-            cell.negotiableLabel.textColor = .white
-            cell.titleField.textColor = .white
-            cell.typeField.textColor = .white
-            cell.priceField.textColor = .white
-            cell.negotiableField.textColor = .white
+            cell.secondLabel.text = "1235621"
+            cell.secondLabel.textColor = .green
+            cell.secondLabel.textAlignment = .left
             
-            cell.titleLabel.text = "title"
-            cell.typeLabel.text = "type"
-            cell.priceLabel.text = "price"
-            cell.negotiableLabel.text = "negotiable"
+            cell.detailsButton.setTitle("Details", for: .normal)
+            cell.detailsButton.setTitleColor(.white, for: .normal)
+            cell.detailsButton.setTitleColor(.gray, for: .highlighted)
+            cell.detailsButton.backgroundColor = color.secondLevelColor
+            cell.detailsButton.layer.cornerRadius = 5
             
-//            cell.titleField.placeholder = "title for sell details"
-//            cell.typeField.placeholder = "write type eg: book, iPhone, car etc"
-//            cell.priceField.placeholder = "write price in dollar"
-//            cell.negotiableField.placeholder = "yes/no"
+            cell.commentsButton.setTitle("Comments", for: .normal)
+            cell.commentsButton.setTitleColor(.white, for: .normal)
+            cell.commentsButton.setTitleColor(.gray, for: .highlighted)
+            cell.commentsButton.backgroundColor = color.secondLevelColor
+            cell.commentsButton.layer.cornerRadius = 5
             
-            cell.titleField.attributedPlaceholder = NSAttributedString(
-                string: "title for sell details",
-                attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray]
-            )
-            cell.typeField.attributedPlaceholder = NSAttributedString(
-                string: "write type eg: book, iPhone, car etc",
-                attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray]
-            )
-            cell.priceField.attributedPlaceholder = NSAttributedString(
-                string: "write price in dollar",
-                attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray]
-            )
-            cell.negotiableField.attributedPlaceholder = NSAttributedString(
-                string: "yes/no",
-                attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray]
-            )
-            
-            cell.titleField.text = viewModel.getEditedText(for: .title)
-            cell.typeField.text = viewModel.getEditedText(for: .type)
-            cell.priceField.text = viewModel.getEditedText(for: .price)
-            cell.negotiableField.text = viewModel.getEditedText(for: .negotiable)
-            
-            if editOption {
-                cell.titleField.isEnabled = true
-                cell.typeField.isEnabled = true
-                cell.priceField.isEnabled = true
-                cell.negotiableField.isEnabled = true
-            } else {
-                cell.titleField.isEnabled = false
-                cell.typeField.isEnabled = false
-                cell.priceField.isEnabled = false
-                cell.negotiableField.isEnabled = false
-            }
-
             return cell
         }
         return UITableViewCell()
@@ -447,7 +398,11 @@ extension SellDetailsViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        imageCellHeight
+        if indexPath.section == 3 {
+            return 100
+        } else {
+            return imageCellHeight
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

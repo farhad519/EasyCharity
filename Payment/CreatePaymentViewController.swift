@@ -5,6 +5,8 @@
 //  Created by Farhad Chowdhury on 25/6/22.
 //
 
+import ReactiveSwift
+import Stripe
 import UIKit
 
 final class CreatePaymentViewController: UIViewController {
@@ -22,10 +24,14 @@ final class CreatePaymentViewController: UIViewController {
     @IBOutlet weak var currencyTF: UITextField!
     @IBOutlet weak var confirmButton: UIButton!
     
+    private var disposables: Disposable?
+    
+    var viewModel: CreatePaymentViewModel!
     
     static func makeViewController() -> CreatePaymentViewController {
         let storyboard = UIStoryboard(name: "CreatePayment", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "CreatePaymentViewController") as? CreatePaymentViewController
+        vc?.viewModel = CreatePaymentViewModel()
         return vc ?? CreatePaymentViewController()
     }
     
@@ -37,6 +43,19 @@ final class CreatePaymentViewController: UIViewController {
         super.viewWillAppear(animated)
         setupNavigationBar()
         prepareView()
+        
+        disposables = viewModel.observeOutputSignal.startWithValues { [weak self] res in
+            guard let self = self else { return }
+            switch res {
+            case .showErrorAlert(title: let title, message: let message):
+                self.displayAlert(title: title ?? "", message: message)
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        disposables?.dispose()
     }
     
     private func prepareView() {
@@ -65,5 +84,62 @@ final class CreatePaymentViewController: UIViewController {
     }
     
     @IBAction func confirmButtonAction(_ sender: UIButton) {
+        guard viewModel.isOnlySpaceAndNewLineOrEmpty(text: gmailTF.text) == false else {
+            displayAlert(title: "Error", message: "Gmail can not be empty.")
+            return
+        }
+        guard viewModel.isOnlySpaceAndNewLineOrEmpty(text: amountTF.text) == false else {
+            displayAlert(title: "Error", message: "Amount can not be empty.")
+            return
+        }
+        guard let _ = amountTF.text, viewModel.isAmountValid(text: amountTF.text) else {
+            displayAlert(title: "Error", message: "Amount not valid. Minimum 0.5 dollar")
+            return
+        }
+        guard let amount100 = viewModel.multiplyBy100(text: amountTF.text) else {
+            displayAlert(title: "Error", message: "Amount not valid. Minimum 0.5 dollar")
+            return
+        }
+        
+        GlobalUITask.showSpinner(viewController: self)
+        viewModel.fetchPaymentIntent(amount: amount100) { [weak self] in
+            guard let self = self else { return }
+            GlobalUITask.removeSpinner(viewController: self)
+            self.showPaymentView()
+        }
+        //self.navigationController?.present(CheckoutViewController2(), animated: true)
+    }
+    
+    func showPaymentView() {
+        guard let paymentIntentClientSecret = viewModel.paymentIntentClientSecret else {
+            return
+        }
+
+        var configuration = PaymentSheet.Configuration()
+        configuration.merchantDisplayName = "Card Details"
+
+        let paymentSheet = PaymentSheet(
+            paymentIntentClientSecret: paymentIntentClientSecret,
+            configuration: configuration
+        )
+
+        paymentSheet.present(from: self) { [weak self] (paymentResult) in
+            switch paymentResult {
+            case .completed:
+                self?.displayAlert(title: "Payment complete!")
+            case .canceled:
+                self?.displayAlert(title: "Payment cancelled!")
+            case .failed(let error):
+                self?.displayAlert(title: "Payment failed", message: error.localizedDescription)
+            }
+        }
+    }
+    
+    func displayAlert(title: String? = nil, message: String? = nil) {
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alertController, animated: true)
+        }
     }
 }

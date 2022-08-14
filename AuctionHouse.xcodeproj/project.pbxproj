@@ -38,6 +38,7 @@
 		5A9A8368274BD8E400F80CB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A9A8366274BD8E400F80CB9 /* Main.storyboard */; };
 		5A9A836D274BD8E500F80CB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A9A836C274BD8E500F80CB9 /* Assets.xcassets */; };
 		5A9A8370274BD8E500F80CB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A9A836E274BD8E500F80CB9 /* LaunchScreen.storyboard */; };
+		5AB1FD22289FA107007E92D2 /* CreatePaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1FD21289FA107007E92D2 /* CreatePaymentViewModel.swift */; };
 		5AC3BBD2274CFF0700166B0A /* DropDownCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC3BBD1274CFF0700166B0A /* DropDownCustomView.swift */; };
 		5AC3BBD4274CFF0F00166B0A /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC3BBD3274CFF0F00166B0A /* ImagePickerManager.swift */; };
 		5AC3BBD6274CFF1800166B0A /* ImageSwiperCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC3BBD5274CFF1800166B0A /* ImageSwiperCustomView.swift */; };
@@ -100,6 +101,7 @@
 		5A9A836C274BD8E500F80CB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A9A836F274BD8E500F80CB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A9A8371274BD8E500F80CB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5AB1FD21289FA107007E92D2 /* CreatePaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePaymentViewModel.swift; sourceTree = "<group>"; };
 		5AC3BBD1274CFF0700166B0A /* DropDownCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownCustomView.swift; sourceTree = "<group>"; };
 		5AC3BBD3274CFF0F00166B0A /* ImagePickerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerManager.swift; sourceTree = "<group>"; };
 		5AC3BBD5274CFF1800166B0A /* ImageSwiperCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSwiperCustomView.swift; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 			children = (
 				5ACB84742867116800FBA57B /* CreatePaymentViewController.swift */,
 				5ACB84762868B7CE00FBA57B /* CreatePayment.storyboard */,
+				5AB1FD21289FA107007E92D2 /* CreatePaymentViewModel.swift */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 				5A415502279CD3BA004E3290 /* OtherMessageCollectionViewCell.swift in Sources */,
 				5A4154FE279CD3A3004E3290 /* MyMessageCollectionViewCell.swift in Sources */,
 				5AC3BBDF274D001D00166B0A /* DashboardViewController.swift in Sources */,
+				5AB1FD22289FA107007E92D2 /* CreatePaymentViewModel.swift in Sources */,
 				5AC3BBD8274CFF1E00166B0A /* PriceDetailsCustomView.swift in Sources */,
 				5A565FC4276E8B54007758C2 /* FireDataModel.swift in Sources */,
 				5AC3BBF6274D010D00166B0A /* ChatMesengerViewController.swift in Sources */,

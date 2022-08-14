@@ -38,6 +38,7 @@
 		5A9A8368274BD8E400F80CB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A9A8366274BD8E400F80CB9 /* Main.storyboard */; };
 		5A9A836D274BD8E500F80CB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A9A836C274BD8E500F80CB9 /* Assets.xcassets */; };
 		5A9A8370274BD8E500F80CB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A9A836E274BD8E500F80CB9 /* LaunchScreen.storyboard */; };
+		5AB1FD22289FA107007E92D2 /* CreatePaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB1FD21289FA107007E92D2 /* CreatePaymentViewModel.swift */; };
 		5AC3BBD2274CFF0700166B0A /* DropDownCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC3BBD1274CFF0700166B0A /* DropDownCustomView.swift */; };
 		5AC3BBD4274CFF0F00166B0A /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC3BBD3274CFF0F00166B0A /* ImagePickerManager.swift */; };
 		5AC3BBD6274CFF1800166B0A /* ImageSwiperCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC3BBD5274CFF1800166B0A /* ImageSwiperCustomView.swift */; };
@@ -59,6 +60,8 @@
 		5AC3BBFB274D014C00166B0A /* AuctionListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC3BBFA274D014C00166B0A /* AuctionListCell.swift */; };
 		5AC3BBFD274D015600166B0A /* AuctionListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AC3BBFC274D015600166B0A /* AuctionListCell.xib */; };
 		5AC4CDCA2828931600888ADB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5AC4CDC92828931600888ADB /* GoogleService-Info.plist */; };
+		5ACB84752867116800FBA57B /* CreatePaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACB84742867116800FBA57B /* CreatePaymentViewController.swift */; };
+		5ACB84772868B7CE00FBA57B /* CreatePayment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ACB84762868B7CE00FBA57B /* CreatePayment.storyboard */; };
 		5AF61D1A2791B033001E2D24 /* ContactListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF61D192791B033001E2D24 /* ContactListViewModel.swift */; };
 		D02A3665E2453CF0E2808169 /* Pods_AuctionHouse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32942F238A5D113EEEE0F9E6 /* Pods_AuctionHouse.framework */; };
 /* End PBXBuildFile section */
@@ -98,6 +101,7 @@
 		5A9A836C274BD8E500F80CB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A9A836F274BD8E500F80CB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A9A8371274BD8E500F80CB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5AB1FD21289FA107007E92D2 /* CreatePaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePaymentViewModel.swift; sourceTree = "<group>"; };
 		5AC3BBD1274CFF0700166B0A /* DropDownCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownCustomView.swift; sourceTree = "<group>"; };
 		5AC3BBD3274CFF0F00166B0A /* ImagePickerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerManager.swift; sourceTree = "<group>"; };
 		5AC3BBD5274CFF1800166B0A /* ImageSwiperCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSwiperCustomView.swift; sourceTree = "<group>"; };
@@ -119,6 +123,8 @@
 		5AC3BBFA274D014C00166B0A /* AuctionListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuctionListCell.swift; sourceTree = "<group>"; };
 		5AC3BBFC274D015600166B0A /* AuctionListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuctionListCell.xib; sourceTree = "<group>"; };
 		5AC4CDC92828931600888ADB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5ACB84742867116800FBA57B /* CreatePaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePaymentViewController.swift; sourceTree = "<group>"; };
+		5ACB84762868B7CE00FBA57B /* CreatePayment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreatePayment.storyboard; sourceTree = "<group>"; };
 		5AF61D192791B033001E2D24 /* ContactListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewModel.swift; sourceTree = "<group>"; };
 		A151F7DEA71E32661A4599F8 /* Pods-AuctionHouse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AuctionHouse.debug.xcconfig"; path = "Target Support Files/Pods-AuctionHouse/Pods-AuctionHouse.debug.xcconfig"; sourceTree = "<group>"; };
 		BF0ED8770F9E9C12102B2184 /* Pods-AuctionHouse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AuctionHouse.release.xcconfig"; path = "Target Support Files/Pods-AuctionHouse/Pods-AuctionHouse.release.xcconfig"; sourceTree = "<group>"; };
@@ -199,6 +205,7 @@
 		5A9A8354274BD8E400F80CB9 = {
 			isa = PBXGroup;
 			children = (
+				5ACB84732867113400FBA57B /* Payment */,
 				5ADBF0C22843ACCE001F964F /* Stripe */,
 				5A06AB962756C0A600E858A4 /* SignUp */,
 				5A5343F5274D6AF900912DC1 /* Backend */,
@@ -311,6 +318,16 @@
 			path = AuctionList;
 			sourceTree = "<group>";
 		};
+		5ACB84732867113400FBA57B /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				5ACB84742867116800FBA57B /* CreatePaymentViewController.swift */,
+				5ACB84762868B7CE00FBA57B /* CreatePayment.storyboard */,
+				5AB1FD21289FA107007E92D2 /* CreatePaymentViewModel.swift */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
 		5ADBF0C22843ACCE001F964F /* Stripe */ = {
 			isa = PBXGroup;
 			children = (
@@ -397,6 +414,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A32E06E27A50A64001103B9 /* DateCollectionViewCell.xib in Resources */,
+				5ACB84772868B7CE00FBA57B /* CreatePayment.storyboard in Resources */,
 				5AC3BBEF274D00CB00166B0A /* ContactCell.xib in Resources */,
 				5A9A8370274BD8E500F80CB9 /* LaunchScreen.storyboard in Resources */,
 				5A415503279CD3BA004E3290 /* OtherMessageCollectionViewCell.xib in Resources */,
@@ -465,6 +483,7 @@
 				5A181FD8274E5CB700E9D874 /* AuctionSellItem+CoreDataProperties.swift in Sources */,
 				5A4154FB279C3FE8004E3290 /* ChatViewController.swift in Sources */,
 				5A0ABE62275A3C5400AE1C7D /* SignUpMainViewModel.swift in Sources */,
+				5ACB84752867116800FBA57B /* CreatePaymentViewController.swift in Sources */,
 				5A3BCD9D284E937A000390E4 /* CheckoutVC.swift in Sources */,
 				5AC3BBDC274CFF2D00166B0A /* VideoPlayerCustomView.swift in Sources */,
 				5A01CE4227694BF800F3BDF2 /* MyKeys.swift in Sources */,
@@ -487,6 +506,7 @@
 				5A415502279CD3BA004E3290 /* OtherMessageCollectionViewCell.swift in Sources */,
 				5A4154FE279CD3A3004E3290 /* MyMessageCollectionViewCell.swift in Sources */,
 				5AC3BBDF274D001D00166B0A /* DashboardViewController.swift in Sources */,
+				5AB1FD22289FA107007E92D2 /* CreatePaymentViewModel.swift in Sources */,
 				5AC3BBD8274CFF1E00166B0A /* PriceDetailsCustomView.swift in Sources */,
 				5A565FC4276E8B54007758C2 /* FireDataModel.swift in Sources */,
 				5AC3BBF6274D010D00166B0A /* ChatMesengerViewController.swift in Sources */,

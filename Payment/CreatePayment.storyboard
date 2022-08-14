@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Create Payment View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="CreatePaymentViewController" id="Y6W-OH-hqX" customClass="CreatePaymentViewController" customModule="AuctionHouse" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CHp-2f-cw8">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6xd-iG-ymT">
+                                        <rect key="frame" x="0.0" y="100" width="414" height="518"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gmail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJi-Uy-KUe" userLabel="gmailLabel">
+                                                <rect key="frame" x="20" y="20" width="80" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="ZT1-SS-QZC"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrp-Et-LE2" userLabel="amountLabel">
+                                                <rect key="frame" x="20" y="61" width="80" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1la-JJ-hh7" userLabel="currencyLabel">
+                                                <rect key="frame" x="20" y="102" width="80" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="gmail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MPh-AI-pXY" userLabel="gmailTextField">
+                                                <rect key="frame" x="120" y="13.5" width="274" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uAD-mW-ERa" userLabel="amountTextField">
+                                                <rect key="frame" x="120" y="54.5" width="274" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QPC-UD-Hw9" userLabel="currencyTextField">
+                                                <rect key="frame" x="120" y="95.5" width="274" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DeI-hs-j2m">
+                                                <rect key="frame" x="20" y="143" width="374" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <connections>
+                                                    <action selector="confirmButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="AWr-pm-Aom"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="1la-JJ-hh7" firstAttribute="centerX" secondItem="lrp-Et-LE2" secondAttribute="centerX" id="4oH-AL-Vx9"/>
+                                            <constraint firstAttribute="trailing" secondItem="DeI-hs-j2m" secondAttribute="trailing" constant="20" id="5n4-Ap-iRx"/>
+                                            <constraint firstItem="1la-JJ-hh7" firstAttribute="height" secondItem="lrp-Et-LE2" secondAttribute="height" id="Dul-TS-yDC"/>
+                                            <constraint firstItem="OJi-Uy-KUe" firstAttribute="height" secondItem="lrp-Et-LE2" secondAttribute="height" id="GyP-h8-OVz"/>
+                                            <constraint firstAttribute="trailing" secondItem="MPh-AI-pXY" secondAttribute="trailing" constant="20" id="M7E-wj-NLX"/>
+                                            <constraint firstItem="QPC-UD-Hw9" firstAttribute="centerY" secondItem="1la-JJ-hh7" secondAttribute="centerY" id="N5D-P4-aWS"/>
+                                            <constraint firstItem="OJi-Uy-KUe" firstAttribute="trailing" secondItem="MPh-AI-pXY" secondAttribute="leading" constant="-20" id="Pum-7Y-1bA"/>
+                                            <constraint firstItem="DeI-hs-j2m" firstAttribute="top" secondItem="1la-JJ-hh7" secondAttribute="bottom" constant="20" id="Q0v-o5-AZE"/>
+                                            <constraint firstItem="1la-JJ-hh7" firstAttribute="width" secondItem="lrp-Et-LE2" secondAttribute="width" id="Wfd-o0-pWg"/>
+                                            <constraint firstItem="uAD-mW-ERa" firstAttribute="width" secondItem="MPh-AI-pXY" secondAttribute="width" id="dYO-US-Haz"/>
+                                            <constraint firstItem="uAD-mW-ERa" firstAttribute="centerX" secondItem="MPh-AI-pXY" secondAttribute="centerX" id="eZG-rp-WZN"/>
+                                            <constraint firstItem="DeI-hs-j2m" firstAttribute="leading" secondItem="6xd-iG-ymT" secondAttribute="leading" constant="20" id="ftd-wP-3OP"/>
+                                            <constraint firstItem="uAD-mW-ERa" firstAttribute="centerY" secondItem="lrp-Et-LE2" secondAttribute="centerY" id="gMi-Ep-jJD"/>
+                                            <constraint firstItem="lrp-Et-LE2" firstAttribute="top" secondItem="OJi-Uy-KUe" secondAttribute="bottom" constant="20" id="hdf-vc-Hwv"/>
+                                            <constraint firstItem="MPh-AI-pXY" firstAttribute="centerY" secondItem="OJi-Uy-KUe" secondAttribute="centerY" id="iKu-dF-T7c"/>
+                                            <constraint firstItem="OJi-Uy-KUe" firstAttribute="leading" secondItem="6xd-iG-ymT" secondAttribute="leading" constant="20" id="kPS-MJ-2nu"/>
+                                            <constraint firstItem="QPC-UD-Hw9" firstAttribute="centerX" secondItem="uAD-mW-ERa" secondAttribute="centerX" id="kko-ok-tBO"/>
+                                            <constraint firstItem="OJi-Uy-KUe" firstAttribute="centerX" secondItem="lrp-Et-LE2" secondAttribute="centerX" id="rE1-lz-dG7"/>
+                                            <constraint firstItem="OJi-Uy-KUe" firstAttribute="width" secondItem="lrp-Et-LE2" secondAttribute="width" id="rPN-Of-qHi"/>
+                                            <constraint firstItem="1la-JJ-hh7" firstAttribute="top" secondItem="lrp-Et-LE2" secondAttribute="bottom" constant="20" id="uas-QF-svq"/>
+                                            <constraint firstItem="QPC-UD-Hw9" firstAttribute="height" secondItem="uAD-mW-ERa" secondAttribute="height" id="wIo-xP-V0l"/>
+                                            <constraint firstItem="uAD-mW-ERa" firstAttribute="height" secondItem="MPh-AI-pXY" secondAttribute="height" id="wkc-Ox-Npe"/>
+                                            <constraint firstItem="QPC-UD-Hw9" firstAttribute="width" secondItem="uAD-mW-ERa" secondAttribute="width" id="yMH-2a-p3Z"/>
+                                            <constraint firstItem="OJi-Uy-KUe" firstAttribute="top" secondItem="6xd-iG-ymT" secondAttribute="top" constant="20" id="zqg-gX-40w"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="6xd-iG-ymT" firstAttribute="leading" secondItem="CHp-2f-cw8" secondAttribute="leading" id="3zw-wS-aEd"/>
+                                    <constraint firstItem="6xd-iG-ymT" firstAttribute="top" secondItem="CHp-2f-cw8" secondAttribute="top" constant="100" id="JI8-ZS-9Dw"/>
+                                    <constraint firstAttribute="trailing" secondItem="6xd-iG-ymT" secondAttribute="trailing" id="NgQ-xC-3Mt"/>
+                                    <constraint firstAttribute="bottom" secondItem="6xd-iG-ymT" secondAttribute="bottom" constant="200" id="i2d-cq-Eeb"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="CHp-2f-cw8" secondAttribute="trailing" id="Ct8-YC-fGb"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="CHp-2f-cw8" secondAttribute="bottom" id="b1P-Ir-x91"/>
+                            <constraint firstItem="CHp-2f-cw8" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="jff-q5-rif"/>
+                            <constraint firstItem="CHp-2f-cw8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="oQb-aa-5ul"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="amountLabel" destination="lrp-Et-LE2" id="0nh-lo-GhH"/>
+                        <outlet property="amountTF" destination="uAD-mW-ERa" id="0xC-af-Nki"/>
+                        <outlet property="confirmButton" destination="DeI-hs-j2m" id="eXE-zP-LyW"/>
+                        <outlet property="currencyLabel" destination="1la-JJ-hh7" id="4ax-Rd-kOZ"/>
+                        <outlet property="currencyTF" destination="QPC-UD-Hw9" id="Zrp-Jk-5M5"/>
+                        <outlet property="gmailLabel" destination="OJi-Uy-KUe" id="OI8-RI-JXG"/>
+                        <outlet property="gmailTF" destination="MPh-AI-pXY" id="Bp5-0i-JCg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="35" y="62"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

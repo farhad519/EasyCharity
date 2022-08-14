@@ -17,18 +17,18 @@ enum SellDetailsViewType {
 }
 
 enum SellDetailsEditedEnum {
-    case title
-    case type
-    case price
-    case negotiable
+//    case title
+//    case type
+//    case price
+//    case negotiable
     case description
 }
 
 struct SellDetailsEditedValue {
-    var title: String
-    var type: String
-    var price: String
-    var negotiable: String
+//    var title: String
+//    var type: String
+//    var price: String
+//    var negotiable: String
     var description: String
 }
 
@@ -75,10 +75,10 @@ final class SellDetailsViewModel {
     
     init(viewType: SellDetailsViewType) {
         editedValue = SellDetailsEditedValue(
-            title: "",
-            type: "",
-            price: "",
-            negotiable: "",
+//            title: "",
+//            type: "",
+//            price: "",
+//            negotiable: "",
             description: ""
         )
         self.viewType = viewType
@@ -91,10 +91,10 @@ final class SellDetailsViewModel {
     ) {
         self.fireAuctionItem = fireAuctionItem
         editedValue = SellDetailsEditedValue(
-            title: fireAuctionItem.title,
-            type: fireAuctionItem.type,
-            price: String(fireAuctionItem.price),
-            negotiable: fireAuctionItem.negotiable ? "yes" : "no",
+//            title: fireAuctionItem.title,
+//            type: fireAuctionItem.type,
+//            price: String(fireAuctionItem.price),
+//            negotiable: fireAuctionItem.negotiable ? "yes" : "no",
             description: fireAuctionItem.description
         )
         self.viewType = viewType
@@ -108,15 +108,15 @@ final class SellDetailsViewModel {
         if editedValue.description.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             return "Need description about the product."
         }
-        if editedValue.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            return "Need title about the product."
-        }
-        if editedValue.type.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            return "Need type about the product."
-        }
-        if editedValue.price.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            return "Need price for the product."
-        }
+//        if editedValue.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+//            return "Need title about the product."
+//        }
+//        if editedValue.type.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+//            return "Need type about the product."
+//        }
+//        if editedValue.price.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+//            return "Need price for the product."
+//        }
         return nil
     }
     
@@ -132,14 +132,14 @@ final class SellDetailsViewModel {
     
     func getEditedText(for editedEnum: SellDetailsEditedEnum) -> String {
         switch editedEnum {
-        case .title:
-            return isEmpty(string: editedValue.title) ? "" : editedValue.title
-        case .type:
-            return isEmpty(string: editedValue.type) ? "" : editedValue.type
-        case .price:
-            return isEmpty(string: editedValue.price) ? "" : editedValue.price
-        case .negotiable:
-            return isEmpty(string: editedValue.negotiable) ? "" : editedValue.negotiable
+//        case .title:
+//            return isEmpty(string: editedValue.title) ? "" : editedValue.title
+//        case .type:
+//            return isEmpty(string: editedValue.type) ? "" : editedValue.type
+//        case .price:
+//            return isEmpty(string: editedValue.price) ? "" : editedValue.price
+//        case .negotiable:
+//            return isEmpty(string: editedValue.negotiable) ? "" : editedValue.negotiable
         case .description:
             return isEmpty(string: editedValue.description) ? "" : editedValue.description
         }
@@ -205,8 +205,8 @@ final class SellDetailsViewModel {
             workGroup.leave()
         }
         
-        let negotiableValue = (editedValue.negotiable.lowercased() == "yes") ? true : false
-        let priceValue = Double(editedValue.price) ?? 0.0
+//        let negotiableValue = (editedValue.negotiable.lowercased() == "yes") ? true : false
+//        let priceValue = Double(editedValue.price) ?? 0.0
         guard let ownerId = Auth.auth().currentUser?.uid else { return }
         
         workGroup.notify(queue: DispatchQueue.main, execute: { [weak self] in
@@ -221,11 +221,11 @@ final class SellDetailsViewModel {
                     .collection(MyKeys.AuctionSellItem.rawValue)
                     .addDocument(
                         data: [
-                            MyKeys.AuctionSellItemField.title.rawValue: editedValue.title,
+                            MyKeys.AuctionSellItemField.title.rawValue: "",
                             MyKeys.AuctionSellItemField.sellDescription.rawValue: editedValue.description,
-                            MyKeys.AuctionSellItemField.type.rawValue: editedValue.type,
-                            MyKeys.AuctionSellItemField.negotiable.rawValue: negotiableValue,
-                            MyKeys.AuctionSellItemField.price.rawValue: priceValue,
+                            MyKeys.AuctionSellItemField.type.rawValue: "",
+                            MyKeys.AuctionSellItemField.negotiable.rawValue: false,
+                            MyKeys.AuctionSellItemField.price.rawValue: 0.0,
                             MyKeys.AuctionSellItemField.ownerId.rawValue: ownerId,
                             MyKeys.AuctionSellItemField.video.rawValue: videoUrlString,
                             MyKeys.AuctionSellItemField.images.rawValue: imageUrlStringList,
@@ -243,11 +243,11 @@ final class SellDetailsViewModel {
                     .document(self?.fireAuctionItem?.id ?? "")
                     .setData(
                         [
-                            MyKeys.AuctionSellItemField.title.rawValue: editedValue.title,
+                            MyKeys.AuctionSellItemField.title.rawValue: "",
                             MyKeys.AuctionSellItemField.sellDescription.rawValue: editedValue.description,
-                            MyKeys.AuctionSellItemField.type.rawValue: editedValue.type,
-                            MyKeys.AuctionSellItemField.negotiable.rawValue: negotiableValue,
-                            MyKeys.AuctionSellItemField.price.rawValue: priceValue,
+                            MyKeys.AuctionSellItemField.type.rawValue: "",
+                            MyKeys.AuctionSellItemField.negotiable.rawValue: false,
+                            MyKeys.AuctionSellItemField.price.rawValue: 0.0,
                             MyKeys.AuctionSellItemField.ownerId.rawValue: ownerId,
                             MyKeys.AuctionSellItemField.video.rawValue: videoUrlString,
                             MyKeys.AuctionSellItemField.images.rawValue: imageUrlStringList,
@@ -285,11 +285,13 @@ final class SellDetailsViewModel {
             workGroup.enter()
             //storageRef.putFile(from: $0.url, metadata: nil) { (metadata, error) in
             storageRef.putData(compressedImageData, metadata: nil) { (metadata, error) in
+                print("[SellDetailsViewModel][getSavedUrlForImages] putData error \(String(describing: error)).")
                 guard error == nil else {
                     workGroup.leave()
                     return
                 }
                 storageRef.downloadURL { (url, error) in
+                    print("[SellDetailsViewModel][getSavedUrlForImages] downloadURL \(String(describing: url)) :: \(String(describing: error)).")
                     guard let url = url else {
                         workGroup.leave()
                         return

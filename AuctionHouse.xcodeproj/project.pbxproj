@@ -17,6 +17,10 @@
 		5A2384062758A87500443734 /* SignUpMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2384052758A87500443734 /* SignUpMainViewController.swift */; };
 		5A2384082758A88700443734 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2384072758A88700443734 /* SignUpViewController.swift */; };
 		5A23840A2758A89600443734 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2384092758A89600443734 /* SignInViewController.swift */; };
+		5A2B852228A97095000F9528 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2B852128A97095000F9528 /* CommentsViewController.swift */; };
+		5A2B852428A970DA000F9528 /* Comments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A2B852328A970DA000F9528 /* Comments.storyboard */; };
+		5A2B852928AA57E5000F9528 /* CommentsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2B852728AA57E5000F9528 /* CommentsHeader.swift */; };
+		5A2B852A28AA57E5000F9528 /* CommentsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A2B852828AA57E5000F9528 /* CommentsHeader.xib */; };
 		5A32E06D27A50A64001103B9 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A32E06B27A50A64001103B9 /* DateCollectionViewCell.swift */; };
 		5A32E06E27A50A64001103B9 /* DateCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A32E06C27A50A64001103B9 /* DateCollectionViewCell.xib */; };
 		5A356AC727539B3D00A5F3DC /* HelperViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A356AC627539B3D00A5F3DC /* HelperViews.swift */; };
@@ -78,6 +82,10 @@
 		5A2384052758A87500443734 /* SignUpMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpMainViewController.swift; sourceTree = "<group>"; };
 		5A2384072758A88700443734 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		5A2384092758A89600443734 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		5A2B852128A97095000F9528 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
+		5A2B852328A970DA000F9528 /* Comments.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Comments.storyboard; sourceTree = "<group>"; };
+		5A2B852728AA57E5000F9528 /* CommentsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsHeader.swift; sourceTree = "<group>"; };
+		5A2B852828AA57E5000F9528 /* CommentsHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentsHeader.xib; sourceTree = "<group>"; };
 		5A32E06B27A50A64001103B9 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		5A32E06C27A50A64001103B9 /* DateCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateCollectionViewCell.xib; sourceTree = "<group>"; };
 		5A356AC627539B3D00A5F3DC /* HelperViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperViews.swift; sourceTree = "<group>"; };
@@ -171,6 +179,17 @@
 			path = AuctionSellItem;
 			sourceTree = "<group>";
 		};
+		5A2B852028A97065000F9528 /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				5A2B852128A97095000F9528 /* CommentsViewController.swift */,
+				5A2B852328A970DA000F9528 /* Comments.storyboard */,
+				5A2B852728AA57E5000F9528 /* CommentsHeader.swift */,
+				5A2B852828AA57E5000F9528 /* CommentsHeader.xib */,
+			);
+			path = Comments;
+			sourceTree = "<group>";
+		};
 		5A5343F5274D6AF900912DC1 /* Backend */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +224,7 @@
 		5A9A8354274BD8E400F80CB9 = {
 			isa = PBXGroup;
 			children = (
+				5A2B852028A97065000F9528 /* Comments */,
 				5ACB84732867113400FBA57B /* Payment */,
 				5ADBF0C22843ACCE001F964F /* Stripe */,
 				5A06AB962756C0A600E858A4 /* SignUp */,
@@ -413,10 +433,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A2B852A28AA57E5000F9528 /* CommentsHeader.xib in Resources */,
 				5A32E06E27A50A64001103B9 /* DateCollectionViewCell.xib in Resources */,
 				5ACB84772868B7CE00FBA57B /* CreatePayment.storyboard in Resources */,
 				5AC3BBEF274D00CB00166B0A /* ContactCell.xib in Resources */,
 				5A9A8370274BD8E500F80CB9 /* LaunchScreen.storyboard in Resources */,
+				5A2B852428A970DA000F9528 /* Comments.storyboard in Resources */,
 				5A415503279CD3BA004E3290 /* OtherMessageCollectionViewCell.xib in Resources */,
 				5AC3BBEC274D008C00166B0A /* TextViewCell.xib in Resources */,
 				5A4154FF279CD3A3004E3290 /* MyMessageCollectionViewCell.xib in Resources */,
@@ -502,11 +524,13 @@
 				5AC3BBF1274D00D300166B0A /* ContactCell.swift in Sources */,
 				5AC3BBD2274CFF0700166B0A /* DropDownCustomView.swift in Sources */,
 				5A23840A2758A89600443734 /* SignInViewController.swift in Sources */,
+				5A2B852228A97095000F9528 /* CommentsViewController.swift in Sources */,
 				5A9A8363274BD8E400F80CB9 /* SceneDelegate.swift in Sources */,
 				5A415502279CD3BA004E3290 /* OtherMessageCollectionViewCell.swift in Sources */,
 				5A4154FE279CD3A3004E3290 /* MyMessageCollectionViewCell.swift in Sources */,
 				5AC3BBDF274D001D00166B0A /* DashboardViewController.swift in Sources */,
 				5AB1FD22289FA107007E92D2 /* CreatePaymentViewModel.swift in Sources */,
+				5A2B852928AA57E5000F9528 /* CommentsHeader.swift in Sources */,
 				5AC3BBD8274CFF1E00166B0A /* PriceDetailsCustomView.swift in Sources */,
 				5A565FC4276E8B54007758C2 /* FireDataModel.swift in Sources */,
 				5AC3BBF6274D010D00166B0A /* ChatMesengerViewController.swift in Sources */,

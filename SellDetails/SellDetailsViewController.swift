@@ -278,6 +278,11 @@ class SellDetailsViewController: UIViewController {
         tableView.register(UINib(nibName: "PriceDetailsCell", bundle: bundle), forCellReuseIdentifier: priceDetailsTableViewCellId)
         tableView.register(UINib(nibName: "TextViewCell", bundle: bundle), forCellReuseIdentifier: textViewCellId)
     }
+    
+    @objc private func detailsButtonTapped() {
+        let vc = CollectedAmountViewController.makeViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension SellDetailsViewController: UITableViewDataSource {
@@ -382,6 +387,12 @@ extension SellDetailsViewController: UITableViewDataSource {
             cell.commentsButton.setTitleColor(.gray, for: .highlighted)
             cell.commentsButton.backgroundColor = color.secondLevelColor
             cell.commentsButton.layer.cornerRadius = 5
+            
+            cell.detailsButton.addTarget(
+                self,
+                action: #selector(detailsButtonTapped),
+                for: .touchUpInside
+            )
             
             return cell
         }

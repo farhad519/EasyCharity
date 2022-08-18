@@ -125,7 +125,13 @@ class DashboardViewController: UIViewController {
                 origin: .zero,
                 size: CGSize(width: selfWidth, height: swipeViewHeight)
             ),
-            imageList: [UIImage(named: "img1")!, UIImage(named: "img2")!, UIImage(named: "img3")!],
+            imageList: [UIImage(named: "image1")!,
+                        UIImage(named: "image2")!,
+                        UIImage(named: "image3")!,
+                        UIImage(named: "image4")!,
+                        UIImage(named: "image5")!,
+                        UIImage(named: "image6")!
+            ],
             groundLevelColor: .white,
             firstLevelColor: .white,
             secondLevelColor: .white

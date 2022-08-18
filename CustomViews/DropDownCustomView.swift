@@ -130,6 +130,10 @@ class DropDownCustomView: UIView {
 //        dropDownView.removeFromSuperview()
 //        //dropDownView.isHidden = true
 //    }
+    func removeDropDownView() {
+        dropDownView.removeFromSuperview()
+    }
+    
     @objc private func tappedOnDropDownLabel(sender: UIButton) {
         let selectedIdx: Int = Int(sender.frame.minY / sender.frame.height)
         guard dropDownAction.count > selectedIdx else { return }

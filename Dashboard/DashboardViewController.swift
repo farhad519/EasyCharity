@@ -13,17 +13,25 @@ class DashboardViewController: UIViewController {
     
     let containerView = UIView()
     let swipeView = UIView()
+    var menuView: DropDownCustomView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         selfWidth = self.view.frame.width
         selfHight = self.view.frame.height
         setupMainView()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tappedOnUpperView(_ :)))
+        self.view.addGestureRecognizer(tap)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavigationBar()
+    }
+    
+    @objc private func tappedOnUpperView(_ gesture: UITapGestureRecognizer) {
+        menuView?.removeDropDownView()
     }
     
     private func setupNavigationBar() {
@@ -55,13 +63,13 @@ class DashboardViewController: UIViewController {
     }
     
     private func setupMenuView() {
-        let menuView = DropDownCustomView(
+        menuView?.removeFromSuperview()
+        menuView = DropDownCustomView(
             dropDownList: [
-                "Sell",
-                "Buy",
-                "Messages",
-                "My Sell List",
-                "My Bid List"
+                "Need Charity",
+                "Give Charity",
+                "My Charity List",
+                "My Payed History"
             ],
             color: color.firstLevelColor,
             dropDownAction: [
@@ -74,12 +82,6 @@ class DashboardViewController: UIViewController {
                 {
                     self.navigationController?.pushViewController(
                         AuctionListViewController.makeViewController(auctionListViewType: .auctionListView),
-                        animated: true
-                    )
-                },
-                {
-                    self.navigationController?.pushViewController(
-                        ContactListViewController.makeViewController(),
                         animated: true
                     )
                 },
@@ -98,17 +100,17 @@ class DashboardViewController: UIViewController {
             ],
             viewController: self
         )
-        menuView.translatesAutoresizingMaskIntoConstraints = false
-        menuView.frame = CGRect(
+        menuView?.translatesAutoresizingMaskIntoConstraints = false
+        menuView?.frame = CGRect(
             x: selfWidth - menuViewSize.width - 10,
             y: 10,
             width: menuViewSize.width,
             height: menuViewSize.height
         )
-        menuView.layer.cornerRadius = 10
-        menuView.backgroundColor = color.firstLevelColor
-        menuView.clipsToBounds = true
-        containerView.addSubview(menuView)
+        menuView?.layer.cornerRadius = 10
+        menuView?.backgroundColor = color.firstLevelColor
+        menuView?.clipsToBounds = true
+        containerView.addSubview(menuView ?? UIView())
     }
     
     private func setupSwipeView() {
@@ -131,6 +133,7 @@ class DashboardViewController: UIViewController {
         swipeView.addSubview(imageSwiperCustomView)
         //swipeView.backgroundColor = .cyan
         containerView.addSubview(swipeView)
+        imageSwiperCustomView.automaticSlidingOfImage()
     }
     
     private func setupSellAndBuyButton() {
@@ -146,7 +149,7 @@ class DashboardViewController: UIViewController {
         sellButton.setTitleColor(.white, for: .normal)
         sellButton.layer.cornerRadius = 10
         sellButton.backgroundColor = color.firstLevelColor
-        sellButton.setTitle("Sell", for: .normal)
+        sellButton.setTitle("Need Charity", for: .normal)
         sellButton.addTarget(self, action: #selector(sellButtonAction), for: .touchUpInside)
         
         let buyButton = UIButton(type: .system)
@@ -161,7 +164,7 @@ class DashboardViewController: UIViewController {
         buyButton.setTitleColor(.white, for: .normal)
         buyButton.layer.cornerRadius = 10
         buyButton.backgroundColor = color.firstLevelColor
-        buyButton.setTitle("Buy", for: .normal)
+        buyButton.setTitle("Give Charity", for: .normal)
         buyButton.addTarget(self, action: #selector(buyButtonAction), for: .touchUpInside)
     }
     

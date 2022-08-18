@@ -36,6 +36,11 @@
 		5A565FC4276E8B54007758C2 /* FireDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A565FC3276E8B54007758C2 /* FireDataModel.swift */; };
 		5A565FC6276ECC1D007758C2 /* CommonCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A565FC5276ECC1D007758C2 /* CommonCode.swift */; };
 		5A5AD62D27E24EDD009063E5 /* CommonDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A5AD62C27E24EDD009063E5 /* CommonDataStore.swift */; };
+		5A886E7528AE1ADF00142948 /* CollectedAmountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A886E7428AE1ADF00142948 /* CollectedAmountTableViewController.swift */; };
+		5A886E7728AE1AF200142948 /* CollectedAmount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A886E7628AE1AF200142948 /* CollectedAmount.storyboard */; };
+		5A886E7A28AE1B9400142948 /* CollectedAmountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A886E7828AE1B9400142948 /* CollectedAmountCell.swift */; };
+		5A886E7B28AE1B9400142948 /* CollectedAmountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A886E7928AE1B9400142948 /* CollectedAmountCell.xib */; };
+		5A886E7D28AE1F5900142948 /* CollectedAmountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A886E7C28AE1F5900142948 /* CollectedAmountViewModel.swift */; };
 		5A9A8361274BD8E400F80CB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9A8360274BD8E400F80CB9 /* AppDelegate.swift */; };
 		5A9A8363274BD8E400F80CB9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9A8362274BD8E400F80CB9 /* SceneDelegate.swift */; };
 		5A9A8365274BD8E400F80CB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9A8364274BD8E400F80CB9 /* ViewController.swift */; };
@@ -101,6 +106,11 @@
 		5A565FC3276E8B54007758C2 /* FireDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireDataModel.swift; sourceTree = "<group>"; };
 		5A565FC5276ECC1D007758C2 /* CommonCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonCode.swift; sourceTree = "<group>"; };
 		5A5AD62C27E24EDD009063E5 /* CommonDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDataStore.swift; sourceTree = "<group>"; };
+		5A886E7428AE1ADF00142948 /* CollectedAmountTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectedAmountTableViewController.swift; sourceTree = "<group>"; };
+		5A886E7628AE1AF200142948 /* CollectedAmount.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CollectedAmount.storyboard; sourceTree = "<group>"; };
+		5A886E7828AE1B9400142948 /* CollectedAmountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectedAmountCell.swift; sourceTree = "<group>"; };
+		5A886E7928AE1B9400142948 /* CollectedAmountCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectedAmountCell.xib; sourceTree = "<group>"; };
+		5A886E7C28AE1F5900142948 /* CollectedAmountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectedAmountViewModel.swift; sourceTree = "<group>"; };
 		5A9A835D274BD8E400F80CB9 /* AuctionHouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AuctionHouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A9A8360274BD8E400F80CB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A9A8362274BD8E400F80CB9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -221,9 +231,22 @@
 			path = DataLayer;
 			sourceTree = "<group>";
 		};
+		5A886E7328AE1A9100142948 /* CollectedDetails */ = {
+			isa = PBXGroup;
+			children = (
+				5A886E7428AE1ADF00142948 /* CollectedAmountTableViewController.swift */,
+				5A886E7628AE1AF200142948 /* CollectedAmount.storyboard */,
+				5A886E7828AE1B9400142948 /* CollectedAmountCell.swift */,
+				5A886E7928AE1B9400142948 /* CollectedAmountCell.xib */,
+				5A886E7C28AE1F5900142948 /* CollectedAmountViewModel.swift */,
+			);
+			path = CollectedDetails;
+			sourceTree = "<group>";
+		};
 		5A9A8354274BD8E400F80CB9 = {
 			isa = PBXGroup;
 			children = (
+				5A886E7328AE1A9100142948 /* CollectedDetails */,
 				5A2B852028A97065000F9528 /* Comments */,
 				5ACB84732867113400FBA57B /* Payment */,
 				5ADBF0C22843ACCE001F964F /* Stripe */,
@@ -435,8 +458,10 @@
 			files = (
 				5A2B852A28AA57E5000F9528 /* CommentsHeader.xib in Resources */,
 				5A32E06E27A50A64001103B9 /* DateCollectionViewCell.xib in Resources */,
+				5A886E7B28AE1B9400142948 /* CollectedAmountCell.xib in Resources */,
 				5ACB84772868B7CE00FBA57B /* CreatePayment.storyboard in Resources */,
 				5AC3BBEF274D00CB00166B0A /* ContactCell.xib in Resources */,
+				5A886E7728AE1AF200142948 /* CollectedAmount.storyboard in Resources */,
 				5A9A8370274BD8E500F80CB9 /* LaunchScreen.storyboard in Resources */,
 				5A2B852428A970DA000F9528 /* Comments.storyboard in Resources */,
 				5A415503279CD3BA004E3290 /* OtherMessageCollectionViewCell.xib in Resources */,
@@ -508,6 +533,7 @@
 				5ACB84752867116800FBA57B /* CreatePaymentViewController.swift in Sources */,
 				5A3BCD9D284E937A000390E4 /* CheckoutVC.swift in Sources */,
 				5AC3BBDC274CFF2D00166B0A /* VideoPlayerCustomView.swift in Sources */,
+				5A886E7D28AE1F5900142948 /* CollectedAmountViewModel.swift in Sources */,
 				5A01CE4227694BF800F3BDF2 /* MyKeys.swift in Sources */,
 				5AF61D1A2791B033001E2D24 /* ContactListViewModel.swift in Sources */,
 				5A5AD62D27E24EDD009063E5 /* CommonDataStore.swift in Sources */,
@@ -523,6 +549,7 @@
 				5A565FC6276ECC1D007758C2 /* CommonCode.swift in Sources */,
 				5AC3BBF1274D00D300166B0A /* ContactCell.swift in Sources */,
 				5AC3BBD2274CFF0700166B0A /* DropDownCustomView.swift in Sources */,
+				5A886E7528AE1ADF00142948 /* CollectedAmountTableViewController.swift in Sources */,
 				5A23840A2758A89600443734 /* SignInViewController.swift in Sources */,
 				5A2B852228A97095000F9528 /* CommentsViewController.swift in Sources */,
 				5A9A8363274BD8E400F80CB9 /* SceneDelegate.swift in Sources */,
@@ -530,6 +557,7 @@
 				5A4154FE279CD3A3004E3290 /* MyMessageCollectionViewCell.swift in Sources */,
 				5AC3BBDF274D001D00166B0A /* DashboardViewController.swift in Sources */,
 				5AB1FD22289FA107007E92D2 /* CreatePaymentViewModel.swift in Sources */,
+				5A886E7A28AE1B9400142948 /* CollectedAmountCell.swift in Sources */,
 				5A2B852928AA57E5000F9528 /* CommentsHeader.swift in Sources */,
 				5AC3BBD8274CFF1E00166B0A /* PriceDetailsCustomView.swift in Sources */,
 				5A565FC4276E8B54007758C2 /* FireDataModel.swift in Sources */,

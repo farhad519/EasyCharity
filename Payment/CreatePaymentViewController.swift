@@ -28,10 +28,10 @@ final class CreatePaymentViewController: UIViewController {
     
     var viewModel: CreatePaymentViewModel!
     
-    static func makeViewController() -> CreatePaymentViewController {
+    static func makeViewController(fireAuctionItem: FireAuctionItem?) -> CreatePaymentViewController {
         let storyboard = UIStoryboard(name: "CreatePayment", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "CreatePaymentViewController") as? CreatePaymentViewController
-        vc?.viewModel = CreatePaymentViewModel()
+        vc?.viewModel = CreatePaymentViewModel(fireAuctionItem: fireAuctionItem)
         return vc ?? CreatePaymentViewController()
     }
     

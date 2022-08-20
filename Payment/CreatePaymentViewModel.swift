@@ -18,13 +18,16 @@ final class CreatePaymentViewModel {
     private let (observeOutput, sendInput) = Signal<EventUI, Never>.pipe()
     
     var paymentIntentClientSecret: String?
+    var receivedToken: String?
+    var fireAuctionItem: FireAuctionItem?
     
     var observeOutputSignal: SignalProducer<CreatePaymentViewModel.EventUI, Never> {
         observeOutput.producer
     }
     
-    init() {
+    init(fireAuctionItem: FireAuctionItem?) {
         StripeAPI.defaultPublishableKey = "pk_test_51Hz6JlDZ7iVchg0Ba5xl3MfEtLKvyDnAap1LXw2YvUw7R7N8Gz8EIED446Tzf4OYPyRgfcldNoFlbuNnyVB1JrGY00n7ZEPonP"
+        self.fireAuctionItem = fireAuctionItem
     }
     
     func fetchPaymentIntent(amount: String, onCompletion: @escaping () -> Void) {
@@ -50,7 +53,8 @@ final class CreatePaymentViewModel {
                 response.statusCode == 200,
                 let data = data,
                 let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String : Any],
-                let clientSecret = json["clientSecret"] as? String
+                let clientSecret = json["clientSecret"] as? String,
+                let receivedToken = json["token"] as? String
             else {
                 let message = error?.localizedDescription ?? "Failed to decode response from server."
                 DispatchQueue.main.async {
@@ -61,6 +65,9 @@ final class CreatePaymentViewModel {
             }
 
             self?.paymentIntentClientSecret = clientSecret
+            self?.receivedToken = receivedToken
+            
+            print("[CreatePaymentViewModel][fetchPaymentIntent] receivedToken = \(receivedToken)")
 
             DispatchQueue.main.async {
                 onCompletion()

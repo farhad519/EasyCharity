@@ -84,7 +84,7 @@ final class CreatePaymentViewController: UIViewController {
     }
     
     @IBAction func confirmButtonAction(_ sender: UIButton) {
-        guard viewModel.isOnlySpaceAndNewLineOrEmpty(text: gmailTF.text) == false else {
+        guard viewModel.isOnlySpaceAndNewLineOrEmpty(text: gmailTF.text) == false, let gmail = gmailTF.text else {
             displayAlert(title: "Error", message: "Gmail can not be empty.")
             return
         }
@@ -92,7 +92,7 @@ final class CreatePaymentViewController: UIViewController {
             displayAlert(title: "Error", message: "Amount can not be empty.")
             return
         }
-        guard let _ = amountTF.text, viewModel.isAmountValid(text: amountTF.text) else {
+        guard let amount = amountTF.text, viewModel.isAmountValid(text: amountTF.text) else {
             displayAlert(title: "Error", message: "Amount not valid. Minimum 0.5 dollar")
             return
         }
@@ -105,12 +105,12 @@ final class CreatePaymentViewController: UIViewController {
         viewModel.fetchPaymentIntent(amount: amount100) { [weak self] in
             guard let self = self else { return }
             GlobalUITask.removeSpinner(viewController: self)
-            self.showPaymentView()
+            self.showPaymentView(amount: amount, gmail: gmail)
         }
         //self.navigationController?.present(CheckoutViewController2(), animated: true)
     }
     
-    func showPaymentView() {
+    func showPaymentView(amount: String, gmail: String) {
         guard let paymentIntentClientSecret = viewModel.paymentIntentClientSecret else {
             return
         }
@@ -127,6 +127,7 @@ final class CreatePaymentViewController: UIViewController {
             switch paymentResult {
             case .completed:
                 self?.displayAlert(title: "Payment complete!")
+                self?.viewModel.postCollectedAmount(amount: amount, gmail: gmail)
             case .canceled:
                 self?.displayAlert(title: "Payment cancelled!")
             case .failed(let error):

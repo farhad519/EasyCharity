@@ -201,10 +201,6 @@ class SellDetailsViewController: UIViewController {
         guard editOption == false else { return }
         
         guard viewModel.viewType != .forBid else {
-            guard let toId = viewModel.getToId else {
-                showFieldEmptyAlert(errorString: "This item has problem. Please try again later.")
-                return
-            }
             guard let auctionId = viewModel.auctionId else {
                 showFieldEmptyAlert(errorString: "This item has problem. Please try again later.")
                 return
@@ -215,7 +211,7 @@ class SellDetailsViewController: UIViewController {
             }
             
             navigationController?.pushViewController(
-                ChatViewController.makeViewController(toId: toId),
+                CreatePaymentViewController.makeViewController(fireAuctionItem: viewModel.fireAuctionItem),
                 animated: true
             )
             return
@@ -280,7 +276,7 @@ class SellDetailsViewController: UIViewController {
     }
     
     @objc private func detailsButtonTapped() {
-        let vc = CollectedAmountViewController.makeViewController()
+        let vc = CollectedAmountViewController.makeViewController(fireCollectedAmount: viewModel.collectedAmountDatas)
         navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -372,9 +368,16 @@ extension SellDetailsViewController: UITableViewDataSource {
             cell.firstLabel.textColor = .white
             cell.firstLabel.textAlignment = .left
             
-            cell.secondLabel.text = "1235621"
-            cell.secondLabel.textColor = .green
+            cell.activityIndicator.startAnimating()
+            cell.secondLabel.text = ""
+            cell.secondLabel.textColor = .white
             cell.secondLabel.textAlignment = .left
+            viewModel.getCollectedAmount {
+                cell.secondLabel.text = "$\($0)"
+                cell.activityIndicator.stopAnimating()
+                cell.activityIndicator.isHidden = true
+            }
+            
             
             cell.detailsButton.setTitle("Details", for: .normal)
             cell.detailsButton.setTitleColor(.white, for: .normal)
@@ -496,7 +499,7 @@ extension SellDetailsViewController: UITableViewDelegate {
         view.addSubview(postButton)
         
         if viewModel.viewType == SellDetailsViewType.forBid {
-            postButton.backgroundColor = .red
+            postButton.backgroundColor = UIColor(hex: "008000")
         }
         
         return view

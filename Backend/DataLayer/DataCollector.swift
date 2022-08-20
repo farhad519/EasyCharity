@@ -568,9 +568,11 @@ class DataCollector {
     }
     
     private func getCollectedAmount(with charityItemId: String, completion: @escaping (Result<[FireCollectedAmount], Error>) -> Void) {
-        let query = Firestore.firestore().collection(MyKeys.collectedAmount.rawValue)
-            .whereField(MyKeys.CollectedAmount.charityItemId.rawValue, isEqualTo: charityItemId)
-        query.getDocuments { (snapShot, error) in
+        let ref = Firestore.firestore()
+            .collection(MyKeys.collectedAmount.rawValue)
+            .document(MyKeys.CollectedAmount.charityItemId.rawValue)
+            .collection(MyKeys.collectedAmount.rawValue)
+        ref.getDocuments { (snapShot, error) in
             print("[DataCollector][getCollectedAmount] collected amount recieved \(String(describing: error)).")
             if let error = error {
                 completion(.failure(error))

@@ -13,4 +13,5 @@ class PriceDetailsCell: UITableViewCell {
     @IBOutlet weak var secondLabel: UILabel!
     @IBOutlet weak var detailsButton: UIButton!
     @IBOutlet weak var commentsButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 }

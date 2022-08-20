@@ -14,10 +14,10 @@ class CollectedAmountViewController: UIViewController {
     private let color = CustomColor(colorSpectrumValue: Int.random(in: CustomColor.colorRange)).value
     private let searchController = UISearchController(searchResultsController: nil)
     
-    static func makeViewController() -> CollectedAmountViewController {
+    static func makeViewController(fireCollectedAmount: [FireCollectedAmount]) -> CollectedAmountViewController {
         let storyboard = UIStoryboard(name: "CollectedAmount", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "CollectedAmountViewController") as? CollectedAmountViewController
-        vc?.viewModel = CollectedAmountViewModel()
+        vc?.viewModel = CollectedAmountViewModel(fireCollectedAmount: fireCollectedAmount)
         return vc ?? CollectedAmountViewController()
     }
     
@@ -26,6 +26,11 @@ class CollectedAmountViewController: UIViewController {
         
         setupNavigationBar()
         setupTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.filterData(str: "")
     }
     
     private func setupNavigationBar() {
@@ -91,7 +96,7 @@ extension CollectedAmountViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        50
+        80
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

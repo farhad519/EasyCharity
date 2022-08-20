@@ -41,14 +41,19 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="R11-QO-2eP">
+                                <rect key="frame" x="164" y="15" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="J2L-ke-dOw" firstAttribute="leading" secondItem="TN1-zq-pVp" secondAttribute="leading" constant="10" id="2y8-Jm-AML"/>
                             <constraint firstItem="HEH-Qp-0Oj" firstAttribute="centerY" secondItem="MZO-vg-8kf" secondAttribute="centerY" id="8eV-Ag-YPV"/>
+                            <constraint firstItem="R11-QO-2eP" firstAttribute="centerX" secondItem="HEH-Qp-0Oj" secondAttribute="centerX" id="AIh-hA-4h6"/>
                             <constraint firstAttribute="bottom" secondItem="rfK-ja-bP4" secondAttribute="bottom" constant="10" id="L6b-oF-IrN"/>
                             <constraint firstItem="MZO-vg-8kf" firstAttribute="leading" secondItem="HEH-Qp-0Oj" secondAttribute="trailing" constant="10" id="UPw-lw-lvS"/>
                             <constraint firstAttribute="trailing" secondItem="MZO-vg-8kf" secondAttribute="trailing" constant="10" id="V7W-C8-2EE"/>
                             <constraint firstItem="J2L-ke-dOw" firstAttribute="centerY" secondItem="MZO-vg-8kf" secondAttribute="centerY" id="VA8-sN-4A5"/>
+                            <constraint firstItem="R11-QO-2eP" firstAttribute="centerY" secondItem="HEH-Qp-0Oj" secondAttribute="centerY" id="ZcG-Yp-zV4"/>
                             <constraint firstItem="rfK-ja-bP4" firstAttribute="height" secondItem="MZO-vg-8kf" secondAttribute="height" id="fVF-OJ-jF2"/>
                             <constraint firstItem="HEH-Qp-0Oj" firstAttribute="width" secondItem="J2L-ke-dOw" secondAttribute="width" id="kDz-IL-Ehp"/>
                             <constraint firstItem="MZO-vg-8kf" firstAttribute="width" secondItem="HEH-Qp-0Oj" secondAttribute="width" id="mXq-23-fOh"/>
@@ -69,6 +74,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="activityIndicator" destination="R11-QO-2eP" id="GuW-lJ-nc8"/>
                 <outlet property="commentsButton" destination="rfK-ja-bP4" id="54D-Xo-9RI"/>
                 <outlet property="containerView" destination="TN1-zq-pVp" id="92H-Qy-que"/>
                 <outlet property="detailsButton" destination="MZO-vg-8kf" id="hfV-RT-apD"/>

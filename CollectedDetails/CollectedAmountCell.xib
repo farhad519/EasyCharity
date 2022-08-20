@@ -20,19 +20,19 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N24-Oo-Sgd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t1a-mS-GyK" userLabel="receivedToken">
-                                <rect key="frame" x="10" y="10" width="100" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t1a-mS-GyK" userLabel="receivedToken">
+                                <rect key="frame" x="10" y="10" width="180" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="z7f-cs-h0J"/>
+                                    <constraint firstAttribute="width" constant="180" id="z7f-cs-h0J"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5Z-p8-Tx3" userLabel="amountPayed">
-                                <rect key="frame" x="210" y="10" width="100" height="24"/>
+                                <rect key="frame" x="230" y="10" width="80" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="4aI-fW-SC0"/>
+                                    <constraint firstAttribute="width" constant="80" id="4aI-fW-SC0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>

@@ -54,8 +54,8 @@ final class SellDetailsViewModel {
         case .forCreate:
             return "Post"
         case .forBid:
-            if isAlreadyBid { return "Already Bid." }
-            else { return "Bid" }
+            if isAlreadyBid { return "Already Gave Charity. Give again." }
+            else { return "Give Charity" }
         default:
             return "Modify"
         }
@@ -102,6 +102,7 @@ final class SellDetailsViewModel {
         )
         self.viewType = viewType
         self.imageUrlCoupleList = imageUrlCoupleList
+        dataCollector = DataCollector()
     }
     
     func isAnyFieldEmpty() -> String? {
@@ -344,6 +345,7 @@ final class SellDetailsViewModel {
     func getCollectedAmount(completion: @escaping (String) -> Void) {
         guard let charityItemId = fireAuctionItem?.id else {
             print("[SellDetailsViewModel][getCollectedAmount] could not get charityItemId.")
+            completion("")
             return
         }
         dataCollector.getCollectedAmount(with: charityItemId).startWithResult { [weak self] result in
@@ -357,6 +359,7 @@ final class SellDetailsViewModel {
                 completion(String(totalAmount))
             case .failure(let error):
                 print("[SellDetailsViewModel][getCollectedAmount] error at fetching collectedAmountDatas \(error)")
+                completion("")
             }
         }
     }

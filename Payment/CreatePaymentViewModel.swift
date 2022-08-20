@@ -16,6 +16,7 @@ final class CreatePaymentViewModel {
     
     private let backendUrlString = "https://first-heroku-project-stripe.herokuapp.com"
     private let (observeOutput, sendInput) = Signal<EventUI, Never>.pipe()
+    private let dataCollector: DataCollector
     
     var paymentIntentClientSecret: String?
     var receivedToken: String?
@@ -28,6 +29,7 @@ final class CreatePaymentViewModel {
     init(fireAuctionItem: FireAuctionItem?) {
         StripeAPI.defaultPublishableKey = "pk_test_51Hz6JlDZ7iVchg0Ba5xl3MfEtLKvyDnAap1LXw2YvUw7R7N8Gz8EIED446Tzf4OYPyRgfcldNoFlbuNnyVB1JrGY00n7ZEPonP"
         self.fireAuctionItem = fireAuctionItem
+        self.dataCollector = DataCollector()
     }
     
     func fetchPaymentIntent(amount: String, onCompletion: @escaping () -> Void) {
@@ -108,5 +110,18 @@ final class CreatePaymentViewModel {
             return nil
         }
         return String(Int(value*100))
+    }
+    
+    func postCollectedAmount(amount: String, gmail: String) {
+        guard let charityItemId = fireAuctionItem?.id else {
+            print("[CreatePaymentViewModel][postCollectedAmount] error no charityItemId")
+            return
+        }
+        dataCollector.postCollectedAmount(
+            charityItemId: charityItemId,
+            token: receivedToken ?? "",
+            amount: amount,
+            gmail: gmail
+        )
     }
 }

@@ -13,6 +13,8 @@ Used Tool:
 4. Heroku (For server hosting)
 5. Coredata (For saving local data)
 
+Hint: index.js has the server code.
+
 Some pic of the app:
 
 First View

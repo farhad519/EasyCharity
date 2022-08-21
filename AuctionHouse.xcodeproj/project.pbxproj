@@ -246,18 +246,8 @@
 		5A9A8354274BD8E400F80CB9 = {
 			isa = PBXGroup;
 			children = (
-				5A886E7328AE1A9100142948 /* CollectedDetails */,
-				5A2B852028A97065000F9528 /* Comments */,
-				5ACB84732867113400FBA57B /* Payment */,
-				5ADBF0C22843ACCE001F964F /* Stripe */,
-				5A06AB962756C0A600E858A4 /* SignUp */,
+				5AAF01E328B21D7800BA9DEF /* SubModule */,
 				5A5343F5274D6AF900912DC1 /* Backend */,
-				5AC3BBF7274D012B00166B0A /* AuctionList */,
-				5AC3BBF4274D00EF00166B0A /* ChatMessenger */,
-				5AC3BBED274D00BB00166B0A /* Contact */,
-				5AC3BBE0274D004300166B0A /* SellDetails */,
-				5AC3BBDD274D000800166B0A /* Dashboard */,
-				5AC3BBD0274CFEE400166B0A /* CustomViews */,
 				5A9A835F274BD8E400F80CB9 /* AuctionHouse */,
 				5A9A835E274BD8E400F80CB9 /* Products */,
 				F9B8AA716C9BC7AA4842AC30 /* Pods */,
@@ -286,6 +276,24 @@
 				5A9A8371274BD8E500F80CB9 /* Info.plist */,
 			);
 			path = AuctionHouse;
+			sourceTree = "<group>";
+		};
+		5AAF01E328B21D7800BA9DEF /* SubModule */ = {
+			isa = PBXGroup;
+			children = (
+				5AC3BBDD274D000800166B0A /* Dashboard */,
+				5A06AB962756C0A600E858A4 /* SignUp */,
+				5A886E7328AE1A9100142948 /* CollectedDetails */,
+				5A2B852028A97065000F9528 /* Comments */,
+				5ACB84732867113400FBA57B /* Payment */,
+				5AC3BBF7274D012B00166B0A /* AuctionList */,
+				5AC3BBF4274D00EF00166B0A /* ChatMessenger */,
+				5AC3BBED274D00BB00166B0A /* Contact */,
+				5AC3BBE0274D004300166B0A /* SellDetails */,
+				5ADBF0C22843ACCE001F964F /* Stripe */,
+				5AC3BBD0274CFEE400166B0A /* CustomViews */,
+			);
+			path = SubModule;
 			sourceTree = "<group>";
 		};
 		5AC3BBD0274CFEE400166B0A /* CustomViews */ = {

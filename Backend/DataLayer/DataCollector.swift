@@ -544,7 +544,7 @@ class DataCollector {
         ]
         let ref = Firestore.firestore()
             .collection(MyKeys.collectedAmount.rawValue)
-            .document(MyKeys.CollectedAmount.charityItemId.rawValue)
+            .document(charityItemId)
             .collection(MyKeys.collectedAmount.rawValue)
         ref.addDocument(data: data)
     }
@@ -570,7 +570,7 @@ class DataCollector {
     private func getCollectedAmount(with charityItemId: String, completion: @escaping (Result<[FireCollectedAmount], Error>) -> Void) {
         let ref = Firestore.firestore()
             .collection(MyKeys.collectedAmount.rawValue)
-            .document(MyKeys.CollectedAmount.charityItemId.rawValue)
+            .document(charityItemId)
             .collection(MyKeys.collectedAmount.rawValue)
         ref.getDocuments { (snapShot, error) in
             print("[DataCollector][getCollectedAmount] collected amount recieved \(String(describing: error)).")

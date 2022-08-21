@@ -22,12 +22,14 @@ enum AuctionListViewType {
 }
 
 struct AuctionListCellStruct {
+    var id: String
     var title: String
     var imageUrlString: String
     var upperString: String
     var lowerString: String
     var sellDescription: String
     init() {
+        id = ""
         title = ""
         imageUrlString = ""
         upperString = "0.0$"
@@ -42,6 +44,7 @@ class AuctionListViewModel {
     var delegate: AuctionListViewControllerDelegate?
     let dataCollector: DataCollector
     var pageNum: Int = 1
+    var blockSize: Int = 20
     
     private var context: NSManagedObjectContext? {
         (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
@@ -80,8 +83,8 @@ class AuctionListViewModel {
         }
         auctionSellItemList = CoreDataManager.shared.getAuctionItemDatas(
             myId: ownerId,
-            offset: 0,
-            blockCount: 20,
+            offset: (pageNum - 1) * blockSize,
+            blockCount: blockSize,
             minV: 0,
             maxV: 200000000,
             searchKey: []
@@ -167,6 +170,7 @@ class AuctionListViewModel {
     func getCellItem(at index: Int) -> AuctionListCellStruct {
         guard index < auctionSellItemList.count else { return AuctionListCellStruct() }
         var cellItem = AuctionListCellStruct()
+        cellItem.id = auctionSellItemList[index].id
         cellItem.title = auctionSellItemList[index].title
         cellItem.upperString = "\(auctionSellItemList[index].price)$"
         cellItem.lowerString = auctionSellItemList[index].negotiable == false ? "Fixed" : "Negotiable"
@@ -231,12 +235,33 @@ class AuctionListViewModel {
 
         auctionSellItemList = CoreDataManager.shared.getAuctionItemDatas(
             myId: ownerId,
-            offset: (pageNum - 1) * 2,
-            blockCount: 20,
+            offset: (pageNum - 1) * blockSize,
+            blockCount: blockSize,
             minV: minV,
             maxV: maxV,
             searchKey: keyArrs
         )
         print("[AuctionListViewModel][getAllSellList] item count from core data \(auctionSellItemList.count)")
+    }
+    
+    func getCollectedAmount(charityItemId: String?, completion: @escaping (String) -> Void) {
+        guard let charityItemId = charityItemId else {
+            print("[AuctionListViewModel][getCollectedAmount] could not get charityItemId.")
+            completion("")
+            return
+        }
+        dataCollector.getCollectedAmount(with: charityItemId).startWithResult { result in
+            switch result {
+            case .success(let collectedAmountDatas):
+                let totalAmount = collectedAmountDatas.reduce(0.0) {
+                    let amount = Double($1.amount) ?? 0.0
+                    return $0 + amount
+                }
+                completion(String(totalAmount))
+            case .failure(let error):
+                print("[SellDetailsViewModel][getCollectedAmount] error at fetching collectedAmountDatas \(error)")
+                completion("")
+            }
+        }
     }
 }

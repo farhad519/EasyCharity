@@ -8,10 +8,9 @@
 import UIKit
 
 class AuctionListCell: UITableViewCell {
-    @IBOutlet weak var buyImageView: UIImageView!
-    @IBOutlet weak var upperLabel: UILabel!
-    @IBOutlet weak var lowerLabel: UILabel!
-    @IBOutlet weak var detailsButton: UIButton!
     @IBOutlet weak var arrowLabel: UILabel!
+    @IBOutlet weak var buyImageView: UIImageView!
+    @IBOutlet weak var amountLabel: UILabel!
+    @IBOutlet weak var activityController: UIActivityIndicatorView!
     @IBOutlet weak var titleLabel: UILabel!
 }

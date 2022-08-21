@@ -34,11 +34,11 @@ Page that has details of why need charity.
 
 <img width="481" alt="5" src="https://user-images.githubusercontent.com/7429178/185783025-ccf00a13-49dc-4d88-95ab-7f54ceda910a.png">
 
-Page for giving charity amount.
+Page for giving charity amount. Page where stripe's paying checkout view is shown.
 
 <img width="481" alt="6" src="https://user-images.githubusercontent.com/7429178/185783026-02f3b154-0335-4aa7-a4d8-878bf8fac3f7.png">
 
-Page where stripe's paying checkout view is shown.
+Page that shows the uniqueTokden for each transaction and the amount, A user can find his tokenId if he gave charity and also the amount will be shown.
 
 <img width="481" alt="7" src="https://user-images.githubusercontent.com/7429178/185783029-1695b1b5-ef26-4152-bb6e-29d29d170616.png">
 

@@ -75,6 +75,8 @@ extension CollectedAmountViewController: UITableViewDataSource {
         
         let cellItem = viewModel.filteredData[indexPath.item]
         
+        cell.backgroundColor = color.groundLevelColor
+        
         cell.receivedToken.text = cellItem.receivedToken
         cell.amountPayed.text = "$\(cellItem.payedAmount)"
         
@@ -85,6 +87,8 @@ extension CollectedAmountViewController: UITableViewDataSource {
         cell.amountPayed.textColor = .white
         
         cell.containerView.backgroundColor = color.firstLevelColor
+        cell.containerView.layer.masksToBounds = true
+        cell.containerView.layer.cornerRadius = 10
         
         return cell
     }

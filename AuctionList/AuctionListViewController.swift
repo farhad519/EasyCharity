@@ -113,7 +113,9 @@ extension AuctionListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: tableViewCellId, for: indexPath) as! AuctionListCell
-        cell.backgroundColor = color.firstLevelColor
+        cell.backgroundColor = color.groundLevelColor
+        cell.selectionStyle = .none
+        
         let item = viewModel.getCellItem(at: indexPath.item)
         //print("dammamamamam = \(item.imageUrlString)")
         cell.buyImageView.image = nil
@@ -137,10 +139,6 @@ extension AuctionListViewController: UITableViewDataSource {
         cell.titleLabel.textColor = .white
         cell.titleLabel.font = UIFont(name: "Helvetica", size: 15)!
         
-        cell.arrowLabel.text = ""
-        cell.arrowLabel.textColor = .white
-        cell.arrowLabel.backgroundColor = .clear
-        
         cell.amountLabel.textColor = .white
         cell.amountLabel.font = UIFont(name: "Helvetica", size: 12)!
         cell.amountLabel.text = ""
@@ -151,9 +149,14 @@ extension AuctionListViewController: UITableViewDataSource {
             cell.activityController.isHidden = true
         }
         
+        cell.containerView.layer.masksToBounds = true
+        cell.containerView.layer.cornerRadius = 10
+        cell.containerView.backgroundColor = color.firstLevelColor
+        cell.labelContainer.backgroundColor = color.firstLevelColor
+        
 //        cell.amountLabel.backgroundColor = .green
-//        cell.arrowLabel.backgroundColor = .red
 //        cell.titleLabel.backgroundColor = .blue
+//        cell.containerView.backgroundColor = .yellow
         
         return cell
     }

@@ -1,5 +1,5 @@
 # EasyCharity
-A simple app.
+A simple app for collecting charity.
 1. User can sign up and log in. (Used Firebase authentication)(Need email verification)
 2. User can create a page asking charity. (Used Firebase database to save)
 3. User can create more than one page for charity.

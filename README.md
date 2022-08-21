@@ -19,10 +19,6 @@ First View
 
 <img width="481" alt="1" src="https://user-images.githubusercontent.com/7429178/185783017-8d38dfe3-0ba4-4a8e-a629-00dc466173ae.png">
 
-Sign In
-
-<img width="481" alt="2" src="https://user-images.githubusercontent.com/7429178/185783020-cad6c416-7332-4fd3-8b1c-df6bea0b2fd2.png">
-
 Dashboard
 
 <img width="481" alt="3" src="https://user-images.githubusercontent.com/7429178/185783021-a07d3c4e-0e09-4c8b-9b70-873862e80faf.png">

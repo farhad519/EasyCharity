@@ -38,7 +38,7 @@ Page for giving charity amount. Page where stripe's paying checkout view is show
 
 <img width="481" alt="6" src="https://user-images.githubusercontent.com/7429178/185783026-02f3b154-0335-4aa7-a4d8-878bf8fac3f7.png">
 
-Page that shows the uniqueTokden for each transaction and the amount, A user can find his tokenId if he gave charity and also the amount will be shown.
+Page that shows the uniqueToken for each transaction and the amount, A user can find his tokenId if he gave charity and also the amount will be shown.
 
 <img width="481" alt="7" src="https://user-images.githubusercontent.com/7429178/185783029-1695b1b5-ef26-4152-bb6e-29d29d170616.png">
 

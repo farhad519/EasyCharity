@@ -1,0 +1,2 @@
+# EasyCharity
+Very simple app.

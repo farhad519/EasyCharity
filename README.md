@@ -2,6 +2,7 @@
 A simple app.
 1. User can sign up and log in. (Used Firebase authentication)
 2. User can create a page asking charity. (Used Firebase database to save)
+3. User can create more than one page for charity.
 3. Other user can select that page and give charity by credit card. (Used Stripe to do the transaction)
 4. A unique token will be received upon transaction completion which only the charity giver knows he is and can validate the total amount.
 

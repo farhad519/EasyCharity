@@ -527,4 +527,71 @@ class DataCollector {
             completion(.success(emails.first ?? ""))
         }
     }
+    
+    func postCollectedAmount(charityItemId: String, token: String, amount: String, gmail: String) {
+//        guard let id = Auth.auth().currentUser?.uid else {
+//            print("[DataCollector][postBidItem] can not find self uid")
+//            return
+//        }
+        
+        let timestamp: NSNumber = NSNumber(value: Int(NSDate().timeIntervalSince1970))
+        let data: [String: Any] = [
+            MyKeys.CollectedAmount.charityItemId.rawValue: charityItemId,
+            MyKeys.CollectedAmount.timeStamp.rawValue: timestamp,
+            MyKeys.CollectedAmount.amount.rawValue: amount,
+            MyKeys.CollectedAmount.token.rawValue: token,
+            MyKeys.CollectedAmount.gmail.rawValue: gmail
+        ]
+        let ref = Firestore.firestore()
+            .collection(MyKeys.collectedAmount.rawValue)
+            .document(charityItemId)
+            .collection(MyKeys.collectedAmount.rawValue)
+        ref.addDocument(data: data)
+    }
+    
+    func getCollectedAmount(with charityItemId: String) -> SignalProducer<[FireCollectedAmount], Error> {
+        SignalProducer { [weak self] (observer, disposable) in
+            guard let self = self else {
+                observer.send(error: DataCollectorError.referenceFailure)
+                return
+            }
+            self.getCollectedAmount(with: charityItemId) { result in
+                switch result {
+                case .success(let collectedAmountDatas):
+                    observer.send(value: collectedAmountDatas)
+                    observer.sendCompleted()
+                case .failure(let error):
+                    observer.send(error: error)
+                }
+            }
+        }
+    }
+    
+    private func getCollectedAmount(with charityItemId: String, completion: @escaping (Result<[FireCollectedAmount], Error>) -> Void) {
+        let ref = Firestore.firestore()
+            .collection(MyKeys.collectedAmount.rawValue)
+            .document(charityItemId)
+            .collection(MyKeys.collectedAmount.rawValue)
+        ref.getDocuments { (snapShot, error) in
+            print("[DataCollector][getCollectedAmount] collected amount recieved \(String(describing: error)).")
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            guard let snapShot = snapShot else {
+                completion(.failure(DataCollectorError.noSnapShot))
+                return
+            }
+            let collectedAmountDatas = snapShot.documents.compactMap { document in
+                FireCollectedAmount(
+                    charityItemId: document[MyKeys.CollectedAmount.charityItemId.rawValue] as? String ?? "",
+                    token: document[MyKeys.CollectedAmount.token.rawValue] as? String ?? "",
+                    amount: document[MyKeys.CollectedAmount.amount.rawValue] as? String ?? "",
+                    gmail: document[MyKeys.CollectedAmount.gmail.rawValue] as? String ?? "",
+                    timeStamp: document[MyKeys.CollectedAmount.timeStamp.rawValue] as? String ?? ""
+                )
+            }
+            completion(.success(collectedAmountDatas))
+        }
+    }
 }

@@ -73,7 +73,7 @@ class ImageSwiperCustomView: UIView {
         self.addSubview(pageController)
     }
     
-    @objc func pageControlTapHandler(sender:UIPageControl) {
+    @objc func pageControlTapHandler(sender: UIPageControl) {
         scrollView.setContentOffset(
             CGPoint(
                 x: CGFloat(sender.currentPage) * selfWidth,
@@ -82,6 +82,23 @@ class ImageSwiperCustomView: UIView {
             animated: true
         )
         lastPage = sender.currentPage
+    }
+    
+    func automaticSlidingOfImage() {
+        Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { [weak self] timer in
+            guard let self = self else { return }
+            self.lastPage = self.lastPage + 1
+            if self.lastPage >= self.imageList.count {
+                self.lastPage = 0
+            }
+            self.scrollView.setContentOffset(
+                CGPoint(
+                    x: CGFloat(self.lastPage) * self.selfWidth,
+                    y: 0
+                ),
+                animated: false
+            )
+        }
     }
     
     private func configureScrollView() {

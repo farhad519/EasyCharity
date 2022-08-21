@@ -78,28 +78,28 @@ class AuctionListViewController: UIViewController {
         ])
     }
     
-    @objc private func detailsButtonAction(sender: UIButton) {
-        let buttonPosition:CGPoint = sender.convert(CGPoint.zero, to:self.tableView)
-        let indexPath = self.tableView.indexPathForRow(at: buttonPosition)
-        let description = viewModel.getCellItem(at: indexPath?.item ?? viewModel.auctionSellItemList.count).sellDescription
-        
-        //print("\(String(describing: indexPath))")
-        let actionController = UIAlertController(
-            title: "Details",
-            message: description,
-            preferredStyle: .alert
-        )
-        
-        actionController.addAction(
-            UIAlertAction(
-                title: "Ok",
-                style: .default,
-                handler: nil
-            )
-        )
-        
-        present(actionController, animated: true)
-    }
+//    @objc private func detailsButtonAction(sender: UIButton) {
+//        let buttonPosition:CGPoint = sender.convert(CGPoint.zero, to:self.tableView)
+//        let indexPath = self.tableView.indexPathForRow(at: buttonPosition)
+//        let description = viewModel.getCellItem(at: indexPath?.item ?? viewModel.auctionSellItemList.count).sellDescription
+//
+//        //print("\(String(describing: indexPath))")
+//        let actionController = UIAlertController(
+//            title: "Details",
+//            message: description,
+//            preferredStyle: .alert
+//        )
+//
+//        actionController.addAction(
+//            UIAlertAction(
+//                title: "Ok",
+//                style: .default,
+//                handler: nil
+//            )
+//        )
+//
+//        present(actionController, animated: true)
+//    }
 }
 
 extension AuctionListViewController: UITableViewDataSource {
@@ -113,7 +113,9 @@ extension AuctionListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: tableViewCellId, for: indexPath) as! AuctionListCell
-        cell.backgroundColor = color.firstLevelColor
+        cell.backgroundColor = color.groundLevelColor
+        cell.selectionStyle = .none
+        
         let item = viewModel.getCellItem(at: indexPath.item)
         //print("dammamamamam = \(item.imageUrlString)")
         cell.buyImageView.image = nil
@@ -133,33 +135,28 @@ extension AuctionListViewController: UITableViewDataSource {
         cell.buyImageView?.layer.cornerRadius = 10
         cell.buyImageView.contentMode = .scaleAspectFill
         
-        cell.upperLabel.text = item.upperString
-        cell.upperLabel.backgroundColor = .clear
-        cell.upperLabel.font = UIFont(name: "Helvetica", size: 15)!
-        cell.upperLabel.textColor = .lightGray
-        cell.lowerLabel.text = item.lowerString
-        cell.lowerLabel.backgroundColor = .clear
-        cell.lowerLabel.font = UIFont(name: "Helvetica", size: 15)!
-        cell.lowerLabel.textColor = .lightGray
-        
-        cell.titleLabel.text = item.title
+        cell.titleLabel.text = item.sellDescription
         cell.titleLabel.textColor = .white
         cell.titleLabel.font = UIFont(name: "Helvetica", size: 15)!
         
-        cell.arrowLabel.text = ""
-        cell.arrowLabel.textColor = .white
-        cell.arrowLabel.backgroundColor = .clear
+        cell.amountLabel.textColor = .white
+        cell.amountLabel.font = UIFont(name: "Helvetica", size: 12)!
+        cell.amountLabel.text = ""
+        cell.activityController.startAnimating()
+        viewModel.getCollectedAmount(charityItemId: item.id) { totalAmount in
+            cell.amountLabel.text = "$\(totalAmount)"
+            cell.activityController.stopAnimating()
+            cell.activityController.isHidden = true
+        }
         
-        cell.detailsButton.titleLabel?.font = UIFont(name: "Helvetica", size: 30)!
-        cell.detailsButton.setTitle("?", for: .normal)
-        cell.detailsButton.setTitleColor(.lightGray, for: .normal)
-        cell.detailsButton.layer.cornerRadius = 20
-        cell.detailsButton.backgroundColor = .clear
-        cell.detailsButton.addTarget(
-            self,
-            action: #selector(detailsButtonAction),
-            for: .touchUpInside
-        )
+        cell.containerView.layer.masksToBounds = true
+        cell.containerView.layer.cornerRadius = 10
+        cell.containerView.backgroundColor = color.firstLevelColor
+        cell.labelContainer.backgroundColor = color.firstLevelColor
+        
+//        cell.amountLabel.backgroundColor = .green
+//        cell.titleLabel.backgroundColor = .blue
+//        cell.containerView.backgroundColor = .yellow
         
         return cell
     }

@@ -19,6 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let vc = SignUpMainViewController.makeViewController()
         //let vc = CreatePaymentViewController.makeViewController()
+        //let vc = CollectedAmountViewController.makeViewController()
+        //let vc = DashboardViewController()
         let window = UIWindow(windowScene: windowScene)
         let navigationController = UINavigationController(rootViewController: vc)
         window.rootViewController = navigationController

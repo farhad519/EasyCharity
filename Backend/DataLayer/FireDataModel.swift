@@ -45,3 +45,11 @@ struct FireBidItem {
     var id: String
     var timeStamp: NSNumber
 }
+
+struct FireCollectedAmount {
+    var charityItemId: String
+    var token: String
+    var amount: String
+    var gmail: String
+    var timeStamp: String
+}
